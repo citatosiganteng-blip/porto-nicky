@@ -1,0 +1,43 @@
+---
+title: "Membangun Sistem Absensi QR Code dengan Laravel & WhatsApp Gateway"
+date: "2026-05-20"
+summary: "Cerita di balik pembuatan final project: sistem absensi berbasis QR code yang terintegrasi dengan WhatsApp untuk notifikasi real-time."
+tags: ["Laravel", "PHP", "WhatsApp API", "QR Code"]
+---
+
+Ini adalah cerita di balik project yang paling gue banggain — sistem absensi QR code yang jadi final project kuliah gue.
+
+## Masalah yang Gue Coba Selesaikan
+
+Absensi manual itu menyebalkan. Kertas hilang, tanda tangan dipalsukan, rekap lama. Gue mau bikin sesuatu yang lebih *smart*.
+
+## Stack yang Gue Pilih
+
+- **Laravel 10** — untuk backend dan logic utama
+- **Fondy/Wijmo QR** — generate QR Code unik per sesi
+- **Fonnte API** — WhatsApp gateway untuk notifikasi
+- **MySQL** — database relasional
+- **Bootstrap 5** — UI yang clean dan mobile-friendly
+
+## Cara Kerjanya
+
+1. Dosen membuka sesi absensi → sistem generate QR Code unik
+2. Mahasiswa scan QR dengan HP → sistem catat kehadiran + waktu
+3. Sistem kirim konfirmasi ke WhatsApp mahasiswa secara otomatis
+4. Dosen bisa lihat rekap real-time di dashboard
+
+## Tantangan Terbesar
+
+Yang paling tricky adalah **mencegah QR Code di-screenshot dan dibagikan**. Solusinya: QR Code expire setiap 5 menit dan hanya bisa dipakai sekali per mahasiswa.
+
+```php
+// QR expire setiap 5 menit
+$session->qr_expires_at = now()->addMinutes(5);
+$session->save();
+```
+
+## Pelajaran yang Gue Dapat
+
+Proyek ini ngajarin gue pentingnya **validasi di server-side**, bukan cuma client-side. Dan betapa enaknya punya notifikasi WhatsApp yang otomatis — user adoption langsung tinggi karena semua orang udah pakai WA.
+
+Project ini sudah live dan dipakai di kampus. Worth it! 🚀
