@@ -1,6 +1,7 @@
 "use client";
 
 import { User, GraduationCap, Code2, Briefcase } from "lucide-react";
+import Link from "next/link";
 
 const stats = [
   { icon: <Code2 size={14} />, label: "Years coding", value: "3+" },
@@ -19,10 +20,13 @@ export default function AboutCard() {
       </div>
 
       <div>
-        <p className="text-sm opacity-80 leading-relaxed mb-3" style={{ fontFamily: "var(--font-dm-sans)" }}>
+        <p className="text-sm opacity-80 leading-relaxed mb-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
           University student building real-world apps with good music and positive vibes. I love turning ideas into{" "}
           <strong className="text-[var(--black)]">clean, fast, and beautiful</strong> digital products.
         </p>
+        <Link href="/about" className="inline-block text-xs font-bold text-[#10b981] hover:underline mb-3" style={{ fontFamily: "var(--font-syne)" }}>
+          Read full bio →
+        </Link>
 
         <div className="grid grid-cols-3 gap-2">
           {stats.map((stat) => (

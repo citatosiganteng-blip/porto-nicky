@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 
 export const metadata = {
   title: "Blog — Muhammad Nicky Ar Ilham",
-  description: "Tulisan tentang web development, Laravel, Next.js, dan hal-hal teknis lainnya.",
+  description: "Writing about web development, Laravel, Next.js, and other technical topics.",
 };
 
 export default function BlogPage() {
@@ -37,7 +37,7 @@ export default function BlogPage() {
             className="opacity-70 text-lg"
             style={{ fontFamily: "var(--font-dm-sans)" }}
           >
-            Cerita, pengalaman, dan catatan teknis dari perjalanan ngoding gue.
+            Stories, experiences, and technical notes from my coding journey.
           </p>
         </div>
 
@@ -54,7 +54,7 @@ export default function BlogPage() {
                     >
                       <div className="flex items-center gap-1.5">
                         <Calendar size={12} />
-                        {new Date(post.date).toLocaleDateString("id-ID", {
+                        {new Date(post.date).toLocaleDateString("en-US", {
                           year: "numeric",
                           month: "long",
                           day: "numeric",

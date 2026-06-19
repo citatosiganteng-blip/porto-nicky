@@ -57,7 +57,7 @@ export default function BlogPreviewClient({ posts }: { posts: PostMeta[] }) {
                     style={{ fontFamily: "var(--font-dm-sans)" }}
                   >
                     <Calendar size={11} />
-                    {new Date(post.date).toLocaleDateString("id-ID", {
+                    {new Date(post.date).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",
                       day: "numeric",

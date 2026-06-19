@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { FaGithub } from "react-icons/fa";
 import type { Project } from "@/lib/projects";
 
 const statusColors: Record<Project["status"], string> = {
@@ -111,17 +110,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 >
                   {project.year}
                 </span>
-                {project.links.github && (
-                  <span
-                    className="p-1.5 rounded-lg border border-[var(--border-color)]/20 bg-[var(--card-bg-subtle)] text-[var(--text-muted)] hover:text-[var(--black)] transition-colors"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.open(project.links.github, "_blank", "noopener,noreferrer");
-                    }}
-                  >
-                    <FaGithub size={12} />
-                  </span>
-                )}
+
               </div>
             </div>
           </div>

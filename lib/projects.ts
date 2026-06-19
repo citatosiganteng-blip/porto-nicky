@@ -21,7 +21,7 @@ export type Project = {
 const projects: Project[] = [
   {
     slug: "sistem-absensi-qr-code",
-    title: "Sistem Absensi QR Code × WhatsApp Gateway",
+    title: "QR Code Attendance System × WhatsApp Gateway",
     description:
       "Smart attendance system with unique QR codes per session and real-time WhatsApp notifications for students.",
     longDescription:

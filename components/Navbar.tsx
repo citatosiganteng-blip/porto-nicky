@@ -3,14 +3,15 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
+import Link from "next/link";
 
 const navLinks = [
-  { label: "Work", href: "#work" },
-  { label: "Stack", href: "#stack" },
-  { label: "About", href: "#about" },
+  { label: "Work", href: "/#work" },
+  { label: "Stack", href: "/#stack" },
+  { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -42,6 +43,20 @@ export default function Navbar() {
     }
   };
 
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    setMenuOpen(false);
+    if (href.startsWith("/#")) {
+      const hash = href.split("#")[1];
+      if (window.location.pathname === "/") {
+        e.preventDefault();
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+  };
+
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
@@ -57,21 +72,22 @@ export default function Navbar() {
         }`}
       >
         {/* Logo */}
-        <a href="#" className="font-syne font-800 text-lg tracking-tight" style={{ fontFamily: "var(--font-syne)", fontWeight: 800 }}>
+        <Link href="/" className="font-syne font-800 text-lg tracking-tight" style={{ fontFamily: "var(--font-syne)", fontWeight: 800 }}>
           <span className="gradient-text">nicky.</span>
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
+              onClick={(e) => handleLinkClick(e, link.href)}
               className="text-sm font-medium text-[var(--black)]/70 hover:text-[var(--black)] transition-colors duration-200"
               style={{ fontFamily: "var(--font-dm-sans)" }}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -85,12 +101,13 @@ export default function Navbar() {
             {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
           </button>
           
-          <a
-            href="#contact"
+          <Link
+            href="/#contact"
+            onClick={(e) => handleLinkClick(e, "/#contact")}
             className="neo-btn bg-[#10b981] text-white text-sm px-4 py-2 rounded-xl gap-2 hover:bg-[#059669]"
           >
             Say hi 👋
-          </a>
+          </Link>
         </div>
 
         {/* Actions (Mobile) */}
@@ -124,23 +141,23 @@ export default function Navbar() {
             className="max-w-4xl mx-auto mt-2 rounded-2xl border-2 border-[var(--border-color)] bg-[var(--bg-base)] shadow-[4px_4px_0px_var(--shadow-color)] p-4 flex flex-col gap-3"
           >
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setMenuOpen(false)}
+                onClick={(e) => handleLinkClick(e, link.href)}
                 className="text-sm font-medium px-3 py-2 rounded-lg hover:bg-[var(--black)]/5 transition-colors"
                 style={{ fontFamily: "var(--font-dm-sans)" }}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#contact"
-              onClick={() => setMenuOpen(false)}
+            <Link
+              href="/#contact"
+              onClick={(e) => handleLinkClick(e, "/#contact")}
               className="neo-btn bg-[#10b981] text-white text-sm px-4 py-2 rounded-xl mt-1 text-center"
             >
               Say hi 👋
-            </a>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

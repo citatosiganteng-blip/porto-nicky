@@ -1,0 +1,50 @@
+---
+title: "Why I Switched from Laravel to Next.js (and when I would go back)"
+date: "2026-06-01"
+summary: "My first experience learning Next.js after 2 years of focusing on Laravel — what's different, what's better, and when Laravel is still the main choice."
+tags: ["Next.js", "Laravel", "React", "Full-Stack"]
+---
+
+For two years, I wrote almost everything in Laravel. Then I tried Next.js, and my perspective on web development changed significantly.
+
+## Background
+
+I started coding seriously around 2023. Laravel was the first framework I learned deeply — routing, Eloquent ORM, Blade templating, I mastered it all step by step.
+
+The problem? Every time I looked at other developers' portfolios, they were all using React. I felt left behind.
+
+## First Impressions of Next.js
+
+Honestly, at first, **I was really confused**. Laravel's mental model is server-centric — a request comes in, gets processed on the server, and returns HTML. Next.js? You have to think about what runs on the server and what runs on the client.
+
+```tsx
+// This runs on the server (default in App Router)
+async function BlogPage() {
+  const posts = await getPosts(); // direct fetch, no useEffect
+  return <div>{posts.map(p => <PostCard key={p.slug} post={p} />)}</div>;
+}
+```
+
+The concept of `"use client"` vs Server Components took some time to truly understand.
+
+## What is Better in Next.js
+
+- **DX (Developer Experience)** — Hot reloading is incredibly fast.
+- **File-based routing** — Creating a new route is as simple as creating a file.
+- **Built-in optimization** — Image optimization, font loading, everything is handled.
+- **Full-stack in one codebase** — API routes + frontend coexist.
+
+## What is Still Better in Laravel
+
+- **Database operations** — Eloquent is still much more intuitive than Prisma/Drizzle.
+- **Authentication** — Laravel Sanctum/Breeze is complete and ready to go out of the box.
+- **Queue, jobs, events** — Laravel has a mature, built-in queueing system.
+- **Information Systems** — For heavy CRUD-based projects, Laravel remains my go-to choice.
+
+## Conclusion
+
+Now, I use **both depending on the context**:
+- **Next.js** → portfolios, landing pages, apps needing high-performance frontend.
+- **Laravel** → information systems, backend APIs, complex CRUD projects.
+
+Neither is objectively better. It's all about *the right tool for the right job*.

@@ -2,7 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllProjects, getProjectBySlug } from "@/lib/projects";
 import { ArrowLeft, ExternalLink } from "lucide-react";
-import { FaGithub } from "react-icons/fa";
 import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 
@@ -102,18 +101,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
           {/* Action links */}
           <div className="flex flex-wrap gap-3">
-            {project.links.github && (
-              <a
-                href={project.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="neo-btn bg-[var(--black)] text-[var(--bg-base)] px-5 py-2.5 rounded-xl text-sm gap-2"
-                style={{ fontFamily: "var(--font-syne)" }}
-              >
-                <FaGithub size={15} />
-                View on GitHub
-              </a>
-            )}
+
             {project.links.live && (
               <a
                 href={project.links.live}

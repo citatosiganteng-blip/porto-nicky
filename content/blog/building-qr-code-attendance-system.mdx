@@ -1,0 +1,43 @@
+---
+title: "Building a QR Code Attendance System with Laravel & WhatsApp Gateway"
+date: "2026-05-20"
+summary: "The story behind building my final project: a QR code-based attendance system integrated with WhatsApp for real-time notifications."
+tags: ["Laravel", "PHP", "WhatsApp API", "QR Code"]
+---
+
+This is the story behind my proudest project — a QR code attendance system that served as my university final project.
+
+## The Problem I Solved
+
+Manual attendance is annoying. Papers get lost, signatures are forged, and recap takes too long. I wanted to build something smarter.
+
+## The Stack I Chose
+
+- **Laravel 10** — for backend and core logic
+- **Fondy/Wijmo QR** — to generate a unique QR Code per session
+- **Fonnte API** — WhatsApp gateway for notifications
+- **MySQL** — relational database
+- **Bootstrap 5** — clean and mobile-friendly UI
+
+## How It Works
+
+1. The lecturer starts an attendance session → the system generates a unique QR Code.
+2. Students scan the QR code with their mobile phones → the system logs their attendance and timestamp.
+3. The system automatically sends a WhatsApp confirmation to the student.
+4. The lecturer can view real-time recap reports on the dashboard.
+
+## Biggest Challenge
+
+The trickiest part was **preventing students from screenshotting and sharing the QR Code**. My solution: the QR Code expires every 5 minutes and can only be scanned once per student.
+
+```php
+// QR expires every 5 minutes
+$session->qr_expires_at = now()->addMinutes(5);
+$session->save();
+```
+
+## What I Learned
+
+This project taught me the importance of **server-side validation**, not just client-side. And it showed me how convenient automated WhatsApp notifications are — user adoption was instant because everyone already uses WhatsApp.
+
+The project is now live and used on campus. Totally worth it! 🚀

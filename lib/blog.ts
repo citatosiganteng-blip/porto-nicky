@@ -22,7 +22,7 @@ function calculateReadingTime(content: string): string {
   const cleanContent = content.replace(/[#*`_\[\]()\-]/g, ""); // Strip basic markdown chars for better word count
   const wordCount = cleanContent.trim().split(/\s+/).length;
   const minutes = Math.ceil(wordCount / wordsPerMinute);
-  return `${minutes} min baca`; // localized to Indonesian as the blog is in Indonesian
+  return `${minutes} min read`;
 }
 
 export function getAllPosts(): PostMeta[] {

@@ -9,7 +9,7 @@ export default function VideoBackground() {
         muted
         playsInline
         preload="auto"
-        className="h-full w-full object-cover opacity-[0.08] dark:opacity-[0.05] transition-opacity duration-1000"
+        className="h-full w-full object-cover opacity-[0.22] dark:opacity-[0.15] transition-opacity duration-1000"
         suppressHydrationWarning
       >
         <source src="/bg.mp4" type="video/mp4" />

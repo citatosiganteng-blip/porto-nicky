@@ -45,7 +45,7 @@ export default async function BlogPost({ params }: Props) {
           >
             <div className="flex items-center gap-1.5">
               <Calendar size={12} />
-              {new Date(post.date).toLocaleDateString("id-ID", {
+              {new Date(post.date).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",

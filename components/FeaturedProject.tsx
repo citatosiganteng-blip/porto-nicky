@@ -1,15 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, QrCode, MessageSquare, Smartphone, Database, ArrowUpRight } from "lucide-react";
-import { FaGithub } from "react-icons/fa";
+import { ExternalLink, QrCode, Smartphone, Database, ArrowUpRight } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
 
 const techTags = ["Laravel", "PHP", "WhatsApp API", "QR Code", "MySQL", "Bootstrap"];
 
 const projectFeatures = [
   { icon: <QrCode size={16} />, text: "QR Code Generation & Scanning" },
-  { icon: <MessageSquare size={16} />, text: "WhatsApp Gateway Integration" },
+  { icon: <FaWhatsapp size={16} />, text: "WhatsApp Gateway Integration" },
   { icon: <Smartphone size={16} />, text: "Mobile-responsive UI" },
   { icon: <Database size={16} />, text: "Real-time Attendance Records" },
 ];
@@ -62,8 +62,8 @@ export default function FeaturedProject() {
                 Attendance × WhatsApp
               </div>
             </div>
-            <div className="hidden md:block w-16 h-16 bg-[var(--black)] rounded-2xl border-2 border-white flex items-center justify-center">
-              <MessageSquare size={28} className="text-[#10b981]" />
+            <div className="hidden md:flex w-16 h-16 bg-[var(--black)] rounded-2xl border-2 border-white items-center justify-center">
+              <FaWhatsapp size={28} className="text-[#10b981]" />
             </div>
           </div>
 
@@ -81,7 +81,7 @@ export default function FeaturedProject() {
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
             <div className="flex-1">
               <h3 className="text-2xl font-extrabold mb-2 text-[var(--black)]" style={{ fontFamily: "var(--font-syne)" }}>
-                Sistem Absensi QR Code × WhatsApp Gateway
+                QR Code Attendance System × WhatsApp Gateway
               </h3>
               <p className="text-[var(--text-muted)] leading-relaxed mb-5" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 A smart attendance system that generates unique QR codes for each session. Students scan
@@ -131,15 +131,7 @@ export default function FeaturedProject() {
                   </div>
                 ))}
               </div>
-              <a
-                href="https://github.com/nickyilham"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="neo-btn bg-[#10b981] text-white px-5 py-3 rounded-xl text-sm gap-2 w-full hover:bg-[#059669]"
-              >
-                <FaGithub size={16} />
-                View on GitHub
-              </a>
+
               <Link
                 href="/projects"
                 className="neo-btn bg-[var(--card-bg-white)] text-[var(--black)] px-5 py-3 rounded-xl text-sm gap-2 w-full hover:bg-[var(--card-bg-subtle)]"
