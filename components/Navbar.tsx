@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import Link from "next/link";
+import ActiveCounter from "./ActiveCounter";
 
 const navLinks = [
   { label: "Work", href: "/#work" },
@@ -93,6 +94,7 @@ export default function Navbar() {
 
         {/* CTA & Theme Toggle (Desktop) */}
         <div className="hidden md:flex items-center gap-3">
+          <ActiveCounter />
           <button
             onClick={toggleTheme}
             className="neo-btn bg-[var(--card-bg-white)] text-[var(--black)] p-2 rounded-xl cursor-pointer hover:bg-[var(--card-bg-subtle)]"
@@ -112,6 +114,7 @@ export default function Navbar() {
 
         {/* Actions (Mobile) */}
         <div className="flex md:hidden items-center gap-2">
+          <ActiveCounter />
           <button
             onClick={toggleTheme}
             className="neo-btn bg-[var(--card-bg-white)] text-[var(--black)] p-2 rounded-xl cursor-pointer hover:bg-[var(--card-bg-subtle)]"
